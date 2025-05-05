@@ -4,24 +4,30 @@ for (let i = 1; i < rows.length; i++) {
   const row = rows[i];
   const cells = row.querySelectorAll("td");
 
-  if (cells.length < 7) continue;
-
+  if (cells.length < 9) continue;
   const subject = cells[2].textContent.trim();
 
-  if (!isNaN(Date.parse(subject)) || subject.toLowerCase().includes("paid") || subject.toLowerCase().includes("session")) {
+  if (
+    !isNaN(Date.parse(subject)) ||
+    subject.toLowerCase().includes("paid") ||
+    subject.toLowerCase().includes("session")
+  ) {
     break;
   }
 
   const delivered = parseInt(cells[5].textContent.trim());
   const attended = parseInt(cells[6].textContent.trim());
+  const dutyLeave = parseInt(cells[8].textContent.trim());
+  const medicalLeave = parseInt(cells[9].textContent.trim());
 
   if (isNaN(delivered) || isNaN(attended) || delivered === 0) {
     console.log(`Subject: ${subject}, ❌ Invalid data`);
     continue;
   }
 
+  const totalAttended = attended + dutyLeave + medicalLeave;
   const required = Math.ceil(0.75 * delivered);
-  const bunkable = attended - required;
+  const bunkable = totalAttended - required;
 
   let status;
   if (bunkable > 0) {
@@ -31,8 +37,6 @@ for (let i = 1; i < rows.length; i++) {
   } else {
     status = `🔴 Attend ${Math.abs(bunkable)} more to reach 75%`;
   }
-
-  console.log(`Subject: ${subject}, Delivered: ${delivered}, Attended: ${attended}, Status: ${status}`);
 
   const statusCell = document.createElement("td");
   statusCell.textContent = status;
