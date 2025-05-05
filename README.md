@@ -1,83 +1,98 @@
-# ✅ Chalkpad Pro Attendance Tracker Extension for Chitkara Students
+# ✅ Chalkpad Pro Attendance Tracker — Chrome Extension for Chitkara University Students
 
-**Chalkpad Pro Attendance Tracker** is a lightweight and powerful Chrome extension built specifically for **Chitkara University students**.  
-It helps you instantly check how many classes you can safely **bunk** (or how many you need to attend) — right inside your Chalkpad Pro attendance page.
+**Chalkpad Pro Attendance Tracker** is a powerful and privacy-friendly **Chrome extension** designed to help **Chitkara University** students track and manage their **attendance** directly from the **Chalkpad Pro portal**.
 
----
-
-## 🎯 Built for 75% Attendance Rule
-
-This extension works with the **75% attendance criteria** followed at Chitkara.  
-It tells you for **each subject**:
-
-- ✅ How many more classes you can **safely miss** while staying above 75%
-- ⚠️ How many **extra classes you need to attend** if you're below 75%
+> 🔍 Ideal for students following the 75% attendance rule at Chitkara.
 
 ---
 
-## 💡 What It Does
+## 🚀 Features — What This Chrome Extension Does
 
-When you open the **attendance section** in Chalkpad Pro:
+When you're on the Chalkpad Pro attendance page, this extension automatically adds a helpful new column next to each subject:
 
-- A new column appears for each subject
-- It shows either:
-  - `✔️ Bunkable: X classes` — if you're above 75%
-  - `❗Attend: X more classes needed` — if you're below 75%
-- All calculations are based on total and attended classes
-
-> 📌 **Note:** This extension calculates class-wise. If you have **2 classes in a day**, it will count **2 separately**. So plan your bunks accordingly.
-
-> ⚠️ **Disclaimer:** While this extension is made to help you, **always cross-check your final attendance manually** for full safety. Don’t rely blindly.
+- ✅ **Shows how many classes you can bunk** while maintaining 75%
+- ❗ **Displays how many more classes you need to attend** if you're below 75%
+- 📊 Real-time calculation based on your attended vs total classes
+- ⚡ Fast, lightweight, and built specifically for Chalkpad Pro (Chitkara)
 
 ---
 
-## 🖥️ How to Install (Step-by-Step)
+## 🎯 Built for Chitkara's 75% Attendance Policy
 
-> 🕒 Takes less than 1 minute
+This tool is tailored for the **75% minimum attendance** rule followed by Chitkara University. It helps you plan smartly:
 
-### 1. **Download ZIP**
+- ✔️ *Bunkable: X classes* — if your attendance is safe
+- ❗ *Attend: X more classes needed* — if your attendance is low
+
+> 🧠 Smart logic: Each class is counted individually — so 2 lectures = 2 counts.
+
+---
+
+## 🛠️ Installation Guide (Takes Less Than 1 Minute)
+
+Follow these simple steps to install the extension:
+
+### 1. Download the Extension
 - Click the green **`Code`** button on this GitHub page
 - Select **`Download ZIP`**
-- Extract it to a folder on your computer
+- Extract the folder on your device
 
-### 2. **Open Chrome Extensions Page**
-- Go to: `chrome://extensions/`
-- Enable **Developer Mode** (top-right)
+### 2. Enable Developer Mode in Chrome
+- Open: `chrome://extensions/`
+- Toggle **Developer Mode** (top-right)
 
-### 3. **Load the Extension**
+### 3. Load the Extension
 - Click **Load unpacked**
-- Select the folder you just extracted
+- Select the extracted folder
 
-🎉 That’s it! Now open your Chalkpad Pro attendance page and see the new bunk info.
-
----
-
-## 📸 Preview
-
-![Sample Screenshot](preview.jpg)
+✅ Done! Open your Chalkpad Pro attendance page to see it in action.
 
 ---
 
-## 🔐 100% Private & Secure
+## 📸 Screenshot / Preview
 
-- No login or account needed
-- No data is collected or shared
-- Works only in your browser, for your convenience
+![Preview of Chalkpad Pro Attendance Tracker](preview.jpg)
 
 ---
 
-## 🙋 Need Help?
+## 🔐 Privacy & Security
 
-Have any issues or feedback?
-
-- Open an [issue on GitHub](https://github.com/abhayshah31/Chalkpad-Pro-Attendance-Tracker/issues)
-- Or reach out to the developer directly
+- No login required
+- No data collected or stored
+- Works entirely in your local browser
+- Open-source and transparent
 
 ---
 
-## 🤝 Want to Contribute?
+## 📢 Why Use This?
 
-Pull requests and ideas are welcome!
+- 📚 For Chitkara students who want to track and plan attendance smartly
+- 🕵️‍♂️ Avoid surprises before exams
+- 📉 Minimize risk of short attendance
+- 🔒 100% secure — works only in your browser
+
+---
+
+## 💬 Need Help?
+
+Have a problem, suggestion, or bug?
+
+- 📂 [Open an issue](https://github.com/abhayshah31/Chalkpad-Pro-Attendance-Tracker/issues)
+- ✉️ Or reach out to the developer directly
+
+---
+
+## 🤝 Contribute
+
+Pull requests, bug reports, and feature ideas are welcome!
+
+> Help improve this tool for the Chitkara student community ❤️
+
+---
+
+## 📢 Keywords for Search Engines
+
+Chalkpad Pro Extension, Chitkara University Chrome Extension, Attendance Tracker Chitkara, Chalkpad Attendance Tool, Chalkpad Bunk Calculator, Chalkpad Attendance 75 Percent Rule, Chalkpad Chrome Plugin
 
 ---
 
