@@ -17,15 +17,15 @@ for (let i = 1; i < rows.length; i++) {
 
   const delivered = parseInt(cells[5].textContent.trim());
   const attended = parseInt(cells[6].textContent.trim());
-  const dutyLeave = parseInt(cells[8].textContent.trim());
-  const medicalLeave = parseInt(cells[9].textContent.trim());
+  const totaldutyLeave = parseInt(cells[11].textContent.trim());
+  const totalmedicalLeave = parseInt(cells[12].textContent.trim());
 
   if (isNaN(delivered) || isNaN(attended) || delivered === 0) {
     console.log(`Subject: ${subject}, ❌ Invalid data`);
     continue;
   }
 
-  const totalAttended = attended + dutyLeave + medicalLeave;
+  const totalAttended = attended + totaldutyLeave + totalmedicalLeave;
   const required = Math.ceil(0.75 * delivered);
   const bunkable = totalAttended - required;
 
