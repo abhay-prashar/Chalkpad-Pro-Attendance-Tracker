@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Chalkpad Pro Attendance Tracker",
+  "version": "1.0",
+  "description": "Shows how many classes you can bunk or need to attend to meet your target attendance.",
+  "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://cuiet.codebrigade.in/chalkpadpro/studentDetails/display*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
