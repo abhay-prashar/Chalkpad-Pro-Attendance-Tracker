@@ -54,7 +54,7 @@ When you open the **attendance section** in Chalkpad Pro:
 
 ## 📸 Preview
 
-![Sample Screenshot](sample.jpg)
+![Sample Screenshot](preview.jpg)
 
 ---
 
