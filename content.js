@@ -1,33 +1,48 @@
+// Inject “Attendance Status” header
+const table = document.getElementById("masterGridTable");
+const headerRow = table?.querySelector("tr");
+if (headerRow) {
+  const th = document.createElement("th");
+  th.textContent = "Attendance Status";
+  th.style.textAlign = "center";
+  headerRow.appendChild(th);
+}
+
+// Now process rows and append status cells
 const rows = document.querySelectorAll("#masterGridTable tr");
+
+// helper to parse ints (defaults to 0)
+const getInt = (cell) => parseInt(cell?.textContent.trim(), 10) || 0;
 
 for (let i = 1; i < rows.length; i++) {
   const row = rows[i];
   const cells = row.querySelectorAll("td");
-
   if (cells.length < 9) continue;
-  const subject = cells[2].textContent.trim();
 
+  const subject = cells[2].textContent.trim().toLowerCase();
+  // skip dates, paid rows or sessions
   if (
     !isNaN(Date.parse(subject)) ||
-    subject.toLowerCase().includes("paid") ||
-    subject.toLowerCase().includes("session")
+    subject.includes("paid") ||
+    subject.includes("session")
   ) {
-    break;
+    continue;
   }
 
-  const delivered = parseInt(cells[5].textContent.trim());
-  const attended = parseInt(cells[6].textContent.trim());
-  const totaldutyLeave = parseInt(cells[11].textContent.trim());
-  const totalmedicalLeave = parseInt(cells[12].textContent.trim());
+  const delivered = getInt(cells[5]);
+  const attended = getInt(cells[6]);
+  const dutyLeave = getInt(cells[11]);
+  const medicalLeave = getInt(cells[12]);
 
-  if (isNaN(delivered) || isNaN(attended) || delivered === 0) {
+  if (delivered === 0) {
     console.log(`Subject: ${subject}, ❌ Invalid data`);
     continue;
   }
 
-  const totalAttended = attended + totaldutyLeave + totalmedicalLeave;
-  const required = Math.ceil(0.75 * delivered);
-  const bunkable = totalAttended - required;
+  // Total effective attended
+  const A = attended + dutyLeave + medicalLeave;
+  // D = delivered, x = max bunks: solve A/(D+x) >= .75 → x <= A/.75 - D
+  const bunkable = Math.floor(A / 0.75 - delivered);
 
   let status;
   if (bunkable > 0) {
@@ -35,13 +50,23 @@ for (let i = 1; i < rows.length; i++) {
   } else if (bunkable === 0) {
     status = `🟠 Exactly at 75%`;
   } else {
-    status = `🔴 Attend ${Math.abs(bunkable)} more to reach 75%`;
+    // deficit case: how many to attend? solve (A+y)/(D+y)>=.75 → y >= (0.75 D - A)/(1 - .75)
+    const need = Math.ceil((0.75 * delivered - A) / 0.25);
+    status = `🔴 Attend ${need} more to reach 75%`;
   }
 
-  const statusCell = document.createElement("td");
-  statusCell.textContent = status;
-  if (bunkable > 0) statusCell.style.color = "green";
-  else if (bunkable === 0) statusCell.style.color = "orange";
-  else statusCell.style.color = "red";
-  row.appendChild(statusCell);
+  // Create the status cell
+  const td = document.createElement("td");
+  td.textContent = status;
+  td.style.textAlign = "center";
+  td.style.color = bunkable > 0 ? "green" : bunkable === 0 ? "orange" : "red";
+
+  // Copy the background color from the first data cell
+  const firstCell = cells[0];
+  if (firstCell) {
+    const bg = window.getComputedStyle(firstCell).backgroundColor;
+    td.style.backgroundColor = bg;
+  }
+
+  row.appendChild(td);
 }
