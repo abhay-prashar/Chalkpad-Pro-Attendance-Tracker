@@ -42,17 +42,18 @@ for (let i = 1; i < rows.length; i++) {
   // Total effective attended
   const A = attended + dutyLeave + medicalLeave;
   // D = delivered, x = max bunks: solve A/(D+x) >= .75 → x <= A/.75 - D
-  const bunkable = Math.floor(A / 0.75 - delivered);
+  const bunkable = Math.floor(A / 0.85 - delivered);
 
   let status;
   if (bunkable > 0) {
     status = `🟢 Ahead by ${bunkable} classes (Can bunk)`;
   } else if (bunkable === 0) {
-    status = `🟠 Exactly at 75%`;
+    status = `🟠 Exactly at 85%`;
   } else {
     // deficit case: how many to attend? solve (A+y)/(D+y)>=.75 → y >= (0.75 D - A)/(1 - .75)
-    const need = Math.ceil((0.75 * delivered - A) / 0.25);
-    status = `🔴 Attend ${need} more to reach 75%`;
+// I change this for new 85% certiria, later i will add custom certiria changer option.
+    const need = Math.ceil((0.85 * delivered - A) / 0.25);
+    status = `🔴 Attend ${need} more to reach 85%`;
   }
 
   // Create the status cell
