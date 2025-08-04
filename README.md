@@ -2,7 +2,7 @@
 
 **Chalkpad Pro Attendance Tracker** is a powerful and privacy-friendly **Chrome extension** designed to help **Chitkara University** students track and manage their **attendance** directly from the **Chalkpad Pro portal**.
 
-> 🔍 Ideal for students following the 75% attendance rule at Chitkara. NOTE: **Currently changed for 85% attendane rule..**
+> 🔍 Ideal for students following the 75% attendance rule at Chitkara. ** NOTE: Currently changed for 85% attendane rule..**
 
 ---
 
