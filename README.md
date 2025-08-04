@@ -2,7 +2,7 @@
 
 **Chalkpad Pro Attendance Tracker** is a powerful and privacy-friendly **Chrome extension** designed to help **Chitkara University** students track and manage their **attendance** directly from the **Chalkpad Pro portal**.
 
-> 🔍 Ideal for students following the 75% attendance rule at Chitkara.
+> 🔍 Ideal for students following the 75% attendance rule at Chitkara. NOTE: **Currently changed for 85% attendane rule..**
 
 ---
 
@@ -10,22 +10,21 @@
 
 When you're on the Chalkpad Pro attendance page, this extension automatically adds a helpful new column next to each subject:
 
-- ✅ **Shows how many classes you can bunk** while maintaining 75%
-- ❗ **Displays how many more classes you need to attend** if you're below 75%
+- ✅ **Shows how many classes you can bunk** while maintaining 85% 
+- ❗ **Displays how many more classes you need to attend** if you're below 85%
 - 📊 Real-time calculation based on your attended vs total classes
 - ⚡ Fast, lightweight, and built specifically for Chalkpad Pro (Chitkara)
 
 ---
 
-## 🎯 Built for Chitkara's 75% Attendance Policy
+## 🎯 Built for Chitkara's 85% Attendance Policy
 
-This tool is tailored for the **75% minimum attendance** rule followed by Chitkara University. It helps you plan smartly:
+This tool is tailored for the **85% minimum attendance** rule followed by Chitkara University. It helps you plan smartly:
 
 - ✔️ *Bunkable: X classes* — if your attendance is safe
 - ❗ *Attend: X more classes needed* — if your attendance is low
 
-> 🧠 Smart logic: Each class is counted individually — so 2 lectures = 2 counts.
-
+> 🧠 Smart logic: Each class is counted individually — so 2 lectures = 2 counts. **2 lectures means 50 min each lect.**
 ---
 
 ## 🛠️ Installation Guide (Takes Less Than 1 Minute)
@@ -77,7 +76,7 @@ Follow these simple steps to install the extension:
 
 Have a problem, suggestion, or bug?
 
-- 📂 [Open an issue](https://github.com/abhayshah31/Chalkpad-Pro-Attendance-Tracker/issues)
+- 📂 [Open an issue](https://github.com/abhay-prashar/Chalkpad-Pro-Attendance-Tracker/issues)
 - ✉️ Or reach out to the developer directly
 
 ---
