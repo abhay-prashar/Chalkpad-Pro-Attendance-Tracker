@@ -3,11 +3,64 @@
 <head>
   <title>Attendance Tracker</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 10px; width: 300px; }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 18px 14px 10px 14px;
+      width: 320px;
+      background: #f4f8fd;
+      color: #233;
+    }
+    .selector-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 14px 0 10px 0;
+    }
+    .selector-bar span {
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+    }
+    .perc-btn {
+      outline: none;
+      font-weight: 900;
+      font-size: 16px;
+      padding: 4px 24px;
+      border-radius: 1.5em;
+      border: none;
+      cursor: pointer;
+      background: #eaf0fa;
+      color: #256;
+      margin-left: 2px;
+      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+      box-shadow: none;
+    }
+    .perc-btn.selected {
+      background: #1976d2;
+      color: #fff;
+      box-shadow: 0 5px 18px -10px #1976d2bb;
+    }
+    .save-status {
+      text-align: center;
+      margin-top: 7px;
+      color: #1976d2;
+      font-size: 13px;
+      font-weight: bold;
+      min-height: 18px;
+      letter-spacing: 0.2px;
+    }
   </style>
 </head>
 <body>
-  <h2>Visit Chalkpad Pro Attendance Page</h2>
-  <p>This extension works when you open the attendance tab in Chalkpad Pro.</p>
+  <h2>Attendance Tracker</h2>
+  <div class="selector-bar">
+    <span>Minimum Attendance:</span>
+    <button class="perc-btn" data-attn="0.75">75%</button>
+    <button class="perc-btn" data-attn="0.85">85%</button>
+  </div>
+  <div class="save-status" id="popupSaveStatus"></div>
+  <p>This setting will be used for attendance calculations in Chalkpad Pro.</p>
+  <script src="popup.js"></script>
 </body>
 </html>

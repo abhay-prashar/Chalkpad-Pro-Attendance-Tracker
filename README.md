@@ -1,98 +1,99 @@
 # ✅ Chalkpad Pro Attendance Tracker — Chrome Extension for Chitkara University Students
 
-**Chalkpad Pro Attendance Tracker** is a powerful and privacy-friendly **Chrome extension** designed to help **Chitkara University** students track and manage their **attendance** directly from the **Chalkpad Pro portal**.
-
-> 🔍 Ideal for students following the 75% attendance rule at Chitkara. ** NOTE: Currently changed for 85% attendane rule..**
+**Chalkpad Pro Attendance Tracker** is a student-friendly, privacy-first **Chrome extension** that helps Chitkara University students instantly track and manage their attendance — right inside the official Chalkpad Pro portal.
 
 ---
 
-## 🚀 Features — What This Chrome Extension Does
+## 🚀 Features
 
-When you're on the Chalkpad Pro attendance page, this extension automatically adds a helpful new column next to each subject:
-
-- ✅ **Shows how many classes you can bunk** while maintaining 85% 
-- ❗ **Displays how many more classes you need to attend** if you're below 85%
-- 📊 Real-time calculation based on your attended vs total classes
-- ⚡ Fast, lightweight, and built specifically for Chalkpad Pro (Chitkara)
+- **Bunk & Attend Calculation**  
+  Instantly see how many classes you can safely bunk, or how many you need to attend, to meet your attendance goal.
+- **Real-time, Live Policy Switch**  
+  Select your required minimum attendance (75% or 85%) from the extension popup — updates instantly, no page reload needed.
+- **Double-Lecture Toggle**  
+  Each subject row lets you pick “1x” or “2x” present count for flexible tracking, perfect for back-to-back lectures.
+- **Clear, Color-coded Status**  
+  Green: you’re safe. Orange: at the limit. Red: you must attend more.
+- **Ultra Lightweight & Secure**  
+  No login, no extra permissions, no data sent anywhere. Everything is stored and processed on your computer.
+- **Specifically Built for Chalkpad Pro (Chitkara University)**  
+  Only runs on your attendance page. Easy to use and install!
 
 ---
 
-## 🎯 Built for Chitkara's 85% Attendance Policy
+## 🎯 Attending Chitkara? Set Your Policy
 
-This tool is tailored for the **85% minimum attendance** rule followed by Chitkara University. It helps you plan smartly:
+- Works for **85% attendance rule** (default) and **75% rule** (for legacy batches or colleges).
+- Change your college's attendance minimum **from the extension popup** at any time — no code changes needed.
+- All calculations update instantly!
 
-- ✔️ *Bunkable: X classes* — if your attendance is safe
-- ❗ *Attend: X more classes needed* — if your attendance is low
-
-> 🧠 Smart logic: Each class is counted individually — so 2 lectures = 2 counts. **2 lectures means 50 min each lect.**
 ---
 
-## 🛠️ Installation Guide (Takes Less Than 1 Minute)
+## 📦 How to Install
 
-Follow these simple steps to install the extension:
+1. **Download this repository**
+   - Click the green `Code` button (top right)
+   - Choose `Download ZIP`
+   - Unzip to any folder
 
-### 1. Download the Extension
-- Click the green **`Code`** button on this GitHub page
-- Select **`Download ZIP`**
-- Extract the folder on your device
+2. **Open Chrome’s Extension Manager**
+   - Go to: `chrome://extensions/`
+   - Turn ON Developer mode (top right)
 
-### 2. Enable Developer Mode in Chrome
-- Open: `chrome://extensions/`
-- Toggle **Developer Mode** (top-right)
+3. **Load the extension**
+   - Click `Load unpacked`
+   - Choose the folder you just unzipped
 
-### 3. Load the Extension
-- Click **Load unpacked**
-- Select the extracted folder
-
-✅ Done! Open your Chalkpad Pro attendance page to see it in action.
+4. **Ready!**
+   - Open your Chalkpad Pro attendance page and click the 📈 extension icon to adjust your attendance rule if needed.
 
 ---
 
 ## 📸 Screenshot / Preview
 
+<!-- Add your screenshot here! Example: -->
 ![Preview of Chalkpad Pro Attendance Tracker](preview.jpg)
 
 ---
 
-## 🔐 Privacy & Security
+## 🔒 Privacy & Security
 
 - No login required
-- No data collected or stored
-- Works entirely in your local browser
-- Open-source and transparent
+- No data ever leaves your device
+- 100% open-source
+- Nothing is stored outside your browser
 
 ---
 
-## 📢 Why Use This?
+## 👀 Why Use This Extension?
 
-- 📚 For Chitkara students who want to track and plan attendance smartly
-- 🕵️‍♂️ Avoid surprises before exams
-- 📉 Minimize risk of short attendance
-- 🔒 100% secure — works only in your browser
-
----
-
-## 💬 Need Help?
-
-Have a problem, suggestion, or bug?
-
-- 📂 [Open an issue](https://github.com/abhay-prashar/Chalkpad-Pro-Attendance-Tracker/issues)
-- ✉️ Or reach out to the developer directly
+- No more last-minute shock — always know your true bunkable limit
+- Instantly check if you’re at risk for short attendance
+- Plan bunking safely with a single glance
+- Toggle between 75% and 85% attendance rules easily — supports both colleges and all Chitkara departments
 
 ---
 
-## 🤝 Contribute
+## 💬 Feedback & Support
 
-Pull requests, bug reports, and feature ideas are welcome!
-
-> Help improve this tool for the Chitkara student community ❤️
-
----
-
-## 📢 Keywords for Search Engines
-
-Chalkpad Pro Extension, Chitkara University Chrome Extension, Attendance Tracker Chitkara, Chalkpad Attendance Tool, Chalkpad Bunk Calculator, Chalkpad Attendance 75 Percent Rule, Chalkpad Chrome Plugin
+- Found a bug? Want a new feature?
+- [Open an issue](https://github.com/abhay-prashar/Chalkpad-Pro-Attendance-Tracker/issues)  
+- Or contact the developer directly
 
 ---
 
-Made with ❤️ by a Chitkara student, for Chitkara students.
+## 🤝 Contribute!
+
+Pull requests and feature suggestions are welcome — help make it even better for Chitkara students.
+
+---
+
+## 🔎 Keywords
+
+Chalkpad Pro Extension, Chitkara University, Chrome Extension, Attendance Tracker, Chalkpad Plugin, Chalkpad Bunk Calculator, Chalkpad 75% 85% Attendance
+
+---
+
+**Made with ❤️ by a Chitkara student, for the Chitkara student community.**
+
+**Tip:** To switch attendance rule (for new/old batch), just click the extension’s icon and select your minimum % — all calculations will instantly update!
