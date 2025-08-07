@@ -23,7 +23,7 @@ function updateAttendanceUI(minAttendance) {
   });
 
   const attnText = `as per ${Math.round(minAttendance * 100)}%`;
-  const toggleTip = "Present count: 1 per class, or 2 for double?";
+  const toggleTip = "Present count: 1 for 50 mins class, or 2 for 100 mins class";
   const ALL_LECTURE_MODE_KEY = "lecture_mode__ALL__";
   const headerRow = table.querySelector("tr");
   if (!headerRow) return;
