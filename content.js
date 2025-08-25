@@ -12,9 +12,9 @@ function getCurrentMinAttendance(callback) {
 
 // Main block as a rerunnable function:
 function updateAttendanceUI(minAttendance) {
-  // Remove any previous columns if updating:
   const table = document.getElementById("masterGridTable");
   if (!table) return;
+
   // Remove headers previously added by this script
   ["attn-lecture","attn-status"].forEach(key => {
     const th = table.querySelector('th[data-added="'+key+'"]');
@@ -27,6 +27,7 @@ function updateAttendanceUI(minAttendance) {
   const ALL_LECTURE_MODE_KEY = "lecture_mode__ALL__";
   const headerRow = table.querySelector("tr");
   if (!headerRow) return;
+
   // ADD HEADERS
   const lectureModeTH = document.createElement("th");
   lectureModeTH.setAttribute("data-added","attn-lecture");
@@ -58,14 +59,6 @@ function updateAttendanceUI(minAttendance) {
   `;
   headerRow.appendChild(statusTH);
 
-  setTimeout(() => {
-    // For ALL toggle UI/handlers
-    window.allToggle = document.getElementById("allToggle");
-    window.allKnob = document.getElementById("allKnob");
-    window.allLabel1x = document.getElementById("allLabel1x");
-    window.allLabel2x = document.getElementById("allLabel2x");
-  });
-
   // Per-row logic
   const getInt = (cell) => parseInt(cell?.textContent.trim(), 10) || 0;
   const rows = table.querySelectorAll("tr");
@@ -79,21 +72,29 @@ function updateAttendanceUI(minAttendance) {
     if (!subjectKey || subject.toLowerCase().includes("paid")
      || subject.toLowerCase().includes("session")
      || !isNaN(Date.parse(subject))) continue;
-    const delivered = getInt(cells[5]);
-    const attended = getInt(cells[6]);
-    const dutyLeave = getInt(cells[11]);
-    const medicalLeave = getInt(cells[12]);
+
+    const delivered = getInt(cells[5]);   // total lectures
+    const attended = getInt(cells[6]);    // attended
+    const usedDuty = getInt(cells[8]);    // used duty leave
+    const usedMedical = getInt(cells[9]); // used medical leave
+    const totalApprovedDuty = getInt(cells[11]);
+    const totalApprovedMedical = getInt(cells[12]);
     if (delivered === 0) continue;
 
     // LECTURE DURATION CELL
     const localStorageKey = `lecture_mode_${subjectKey}`;
-    let modeValue = null;
+    let modeValue = 2; // default to 2x
     if (localStorage.getItem(localStorageKey) !== null) {
       modeValue = localStorage.getItem(localStorageKey) === "2" ? 2 : 1;
     } else {
       const allMode = Number(localStorage.getItem(ALL_LECTURE_MODE_KEY));
-      modeValue = allMode === 2 ? 2 : 1;
+      if ([1, 2].includes(allMode)) {
+        modeValue = allMode;
+      } else {
+        modeValue = 2;
+      }
     }
+
     const modeTD = document.createElement("td");
     modeTD.setAttribute("data-added","attn-lecture");
     if (cells[0]) modeTD.style.backgroundColor = window.getComputedStyle(cells[0]).backgroundColor;
@@ -154,11 +155,33 @@ function updateAttendanceUI(minAttendance) {
     if (cells[0]) statusTD.style.backgroundColor = window.getComputedStyle(cells[0]).backgroundColor;
     row.appendChild(statusTD);
 
+    // BASE attended includes only physical attendance + already-applied leaves
+    const baseAttended = attended + usedDuty + usedMedical;
+
+    const remainingApproved = Math.max(0,
+      (totalApprovedDuty + totalApprovedMedical) - (usedDuty + usedMedical)
+    );
+
+    const TRIGGER_THRESHOLD = 0.65;
+    const MAX_RELIEF_PERCENT = 0.75;
+
+    function computeAppliedLeavesAndAttended() {
+      const basePercent = baseAttended / delivered;
+      if (basePercent >= TRIGGER_THRESHOLD || remainingApproved <= 0) {
+        return { appliedLeaves: 0, finalAttended: baseAttended };
+      }
+      const neededToReachCap = Math.ceil(Math.max(0, MAX_RELIEF_PERCENT * delivered - baseAttended));
+      const appliedLeaves = Math.min(remainingApproved, neededToReachCap);
+      const finalAttended = baseAttended + appliedLeaves;
+      return { appliedLeaves, finalAttended };
+    }
+
+    const { appliedLeaves, finalAttended } = computeAppliedLeavesAndAttended();
+
     function updateStatus() {
       const factor = modeValue;
-      const A = attended + dutyLeave + medicalLeave;
       const effDelivered = Math.floor(delivered / factor);
-      const effAttended = Math.floor(A / factor);
+      const effAttended = Math.floor(finalAttended / factor);
       const bunkable = Math.floor(effAttended / minAttendance - effDelivered);
       let status;
       if (bunkable > 0) {
@@ -172,7 +195,11 @@ function updateAttendanceUI(minAttendance) {
         status = `🚨 Attend ${need} to recover`;
         statusTD.style.color = "#d10019";
       }
-      statusTD.textContent = status;
+      if (appliedLeaves > 0) {
+        statusTD.textContent = `${status} (Applied ${appliedLeaves} approved leave${appliedLeaves>1?'s':''} — capped to ${Math.round(MAX_RELIEF_PERCENT*100)}%)`;
+      } else {
+        statusTD.textContent = status;
+      }
     }
 
     function renderToggleUI() {
@@ -207,7 +234,7 @@ function updateAttendanceUI(minAttendance) {
     const allLabel2x = document.getElementById("allLabel2x");
     if (!allToggle || !allKnob || !allLabel1x || !allLabel2x) return;
     let allVal = Number(localStorage.getItem("lecture_mode__ALL__"));
-    if (![1, 2].includes(allVal)) allVal = 1;
+    if (![1, 2].includes(allVal)) allVal = 2; // default global toggle = 2x
     function renderAllUI(val) {
       if (val === 2) {
         allKnob.style.left = "7px";

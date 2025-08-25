@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Chalkpad Pro Attendance Tracker",
-  "version": "2.0",
+  "version": "2.1",
   "description": "Shows how many classes you can bunk or need to attend to meet your target attendance.",
   "permissions": [
     "storage",
